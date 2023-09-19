@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:jalseva/screens/SignupScreen/signup_screen_controller.dart';
 import 'package:jalseva/screens/loginScreen/login_screen_controller.dart';
