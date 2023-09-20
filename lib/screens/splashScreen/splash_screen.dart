@@ -13,9 +13,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/Signup');
-    });
+    // Future.delayed(const Duration(seconds: 3), () {
+    //   Navigator.pushReplacementNamed(context, '/Signup');
+    // });
   }
 
   @override
@@ -25,8 +25,24 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         width: double.infinity,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            
+            SizedBox(
+              height: 2,
+            ),
+            Image.asset(
+              'assets/title.png',
+              width: 240,
+              ),
+            Image.asset(
+              'assets/drop.png',
+              width: 70,
+              height: 70,
+              ),
+            Image.asset(
+              'assets/spsc_bottom_img.png',
+            ),
           ],
         ),
       ),
