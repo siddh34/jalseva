@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.infinity,
         child: Column(
           children: [
-
+            
           ],
         ),
       ),
