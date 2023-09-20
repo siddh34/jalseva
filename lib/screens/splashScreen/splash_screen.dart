@@ -41,9 +41,9 @@ class _SplashScreenState extends State<SplashScreen>
     // Start the animation
     controller.forward();
 
-    // Future.delayed(const Duration(seconds: 3), () {
-    //   Navigator.pushReplacementNamed(context, '/Signup');
-    // });
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, '/Post');
+    });
   }
 
   @override
