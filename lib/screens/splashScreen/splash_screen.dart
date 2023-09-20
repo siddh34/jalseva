@@ -17,20 +17,16 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // Initialize the animation controller
-    // Initialize the animation controller
     controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
     );
 
-    // Create a sequence of tweens that alternate between 1 and 0
     final tweenSequence = TweenSequence<double>([
       TweenSequenceItem(tween: Tween<double>(begin: 1, end: 0.25), weight: 1),
       TweenSequenceItem(tween: Tween<double>(begin: 0.25, end: 1), weight: 1),
     ]);
 
-    // Create an animation that repeats the sequence indefinitely
     animation = tweenSequence.animate(controller)..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         controller.reset();
@@ -38,7 +34,6 @@ class _SplashScreenState extends State<SplashScreen>
       }
     });
 
-    // Start the animation
     controller.forward();
 
     Future.delayed(const Duration(seconds: 3), () {
