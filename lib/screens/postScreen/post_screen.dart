@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../components/button.dart';
 import '../../components/image_viewer_post_screen.dart';
 import "../../components/TextBox.dart";
+
 class PostScreen extends StatefulWidget {
   const PostScreen({Key? key}) : super(key: key);
 
@@ -136,80 +138,52 @@ class ImagePreviewScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text("Latitude:"),
-                      SizedBox(width: 5),
-                      TextBox(value: "12.8998 N"),
-                      SizedBox(width: 10),
-                      Text("Longitude:"),
-                      SizedBox(width: 5),
-                      TextBox(value: "72.8998 E"),
-                    ],
-                  ),
+                  Text("Latitude:"),
+                  SizedBox(width: 5),
+                  TextBox(value: "12.8998 N"),
+                  SizedBox(width: 20),
+                  Text("Longitude:"),
+                  SizedBox(width: 5),
+                  TextBox(value: "72.8998 E"),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    children: [
-                      Text("Area:"),
-                      SizedBox(width: 5),
-                      TextBox(value: "Malojire"),
-                      SizedBox(width: 10),
-                      Text("City:"),
-                      SizedBox(width: 5),
-                      TextBox(value: "Ratnagiri"),
-                    ],
-                  ),
-                ],
+              SizedBox(
+                height: 5,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    children: [
-                      Text("State:"),
-                      SizedBox(width: 5),
-                      TextBox(value: "Maharashtra"),
-                      SizedBox(width: 10),
-                      Text("Country:"),
-                      SizedBox(width: 5),
-                      TextBox(value: "India"),
-                    ],
-                  ),
+                  Text("Area:"),
+                  SizedBox(width: 5),
+                  TextBox(value: "Malojire"),
+                  SizedBox(width: 20),
+                  Text("City:"),
+                  SizedBox(width: 5),
+                  TextBox(value: "Ratnagiri"),
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("State:"),
+                  SizedBox(width: 5),
+                  TextBox(value: "Maharashtra"),
+                  SizedBox(width: 20),
+                  Text("Country:"),
+                  SizedBox(width: 5),
+                  TextBox(value: "India"),
                 ],
               ),
             ],
           ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Container(
-              width: 100,
-              height: 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.blue,
-              ),
-              child: Center(
-                child: Text(
-                  'Upload',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          CommonButton(insideText: 'Upload'),
         ],
       ),
     );
   }
 }
-
-
