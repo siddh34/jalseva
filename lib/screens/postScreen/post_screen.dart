@@ -181,6 +181,21 @@ class ImagePreviewScreen extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(
+            width: 300,
+            child: TextField(
+              controller: TextEditingController(text: 'it is a photo'),
+              onChanged: (value) {
+                // Do something with the value
+              },
+              decoration: InputDecoration(
+                labelText: 'Auto Generated Caption',
+                hintText: 'Hint text',
+                border: OutlineInputBorder(),
+                contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+              ),
+            ),
+          ),
           CommonButton(insideText: 'Upload'),
         ],
       ),
