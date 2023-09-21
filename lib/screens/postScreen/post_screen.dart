@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../components/image_viewer_post_screen.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({Key? key}) : super(key: key);
@@ -56,7 +56,7 @@ class _PostScreenState extends State<PostScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ImagePreviewScreen(imageFile: _imageFile!),
+          builder: (context) => ImagePreviewScreen(imageFile: _imageFile!,onRetake: _showBottomSheet,),
         ),
       );
     }
@@ -82,9 +82,11 @@ class _PostScreenState extends State<PostScreen> {
 }
 
 class ImagePreviewScreen extends StatelessWidget {
-  const ImagePreviewScreen({Key? key, required this.imageFile}) : super(key: key);
+  const ImagePreviewScreen({Key? key, required this.imageFile, required this.onRetake})
+      : super(key: key);
 
   final File imageFile;
+  final Function onRetake;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +95,7 @@ class ImagePreviewScreen extends StatelessWidget {
         title: const Text('Image Preview'),
       ),
       body: Center(
-        child: Image.file(imageFile),
+        child: ImageViewerPost(imageFile: imageFile,onRetake: onRetake,),
       ),
     );
   }
