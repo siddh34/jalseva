@@ -1,5 +1,3 @@
-// create a image viewer component
-
 import 'package:flutter/material.dart';
 
 class ImageViewer extends StatelessWidget {
@@ -9,10 +7,8 @@ class ImageViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Image.asset(imagePath),
-      ),
+    return Center(
+      child: Image.asset(imagePath),
     );
   }
 }

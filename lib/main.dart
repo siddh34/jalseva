@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:jalseva/screens/SignupScreen/signup_screen_controller.dart';
-import 'package:jalseva/screens/loginScreen/login_screen_controller.dart';
-import 'package:jalseva/screens/mainScreen/main_screen_controller.dart';
-import 'package:jalseva/screens/postScreen/post_screen_controller.dart';
+import 'package:jalseva/screens/SignupScreen/signup_screen.dart';
+import 'package:jalseva/screens/loginScreen/login_screen.dart';
+import 'package:jalseva/screens/mainScreen/main_screen.dart';
+import 'package:jalseva/screens/postScreen/post_screen.dart';
 import 'package:jalseva/screens/splashScreen/splash_screen.dart';
 
 void main() => runApp(MyApp());
