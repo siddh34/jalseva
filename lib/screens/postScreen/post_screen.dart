@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../components/image_viewer_post_screen.dart';
-
+import "../../components/TextBox.dart";
 class PostScreen extends StatefulWidget {
   const PostScreen({Key? key}) : super(key: key);
 
@@ -56,7 +56,10 @@ class _PostScreenState extends State<PostScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ImagePreviewScreen(imageFile: _imageFile!,onRetake: _showBottomSheet,),
+          builder: (context) => ImagePreviewScreen(
+            imageFile: _imageFile!,
+            onRetake: _showBottomSheet,
+          ),
         ),
       );
     }
@@ -82,21 +85,131 @@ class _PostScreenState extends State<PostScreen> {
 }
 
 class ImagePreviewScreen extends StatelessWidget {
-  const ImagePreviewScreen({Key? key, required this.imageFile, required this.onRetake})
-      : super(key: key);
+  const ImagePreviewScreen({
+    Key? key,
+    required this.imageFile,
+    required this.onRetake,
+    this.firstname = "Aditya",
+  }) : super(key: key);
 
   final File imageFile;
   final Function onRetake;
+  final String firstname;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Image Preview'),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              'assets/male.png',
+              width: 24,
+              height: 24,
+            ),
+            Text(firstname),
+            const SizedBox(width: 8),
+            Image.asset(
+              'assets/title.png',
+              width: 100,
+              height: 100,
+            ),
+          ],
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
-      body: Center(
-        child: ImageViewerPost(imageFile: imageFile,onRetake: onRetake,),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ImageViewerPost(
+            imageFile: imageFile,
+            onRetake: onRetake,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text("Latitude:"),
+                      SizedBox(width: 5),
+                      TextBox(value: "12.8998 N"),
+                      SizedBox(width: 10),
+                      Text("Longitude:"),
+                      SizedBox(width: 5),
+                      TextBox(value: "72.8998 E"),
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      Text("Area:"),
+                      SizedBox(width: 5),
+                      TextBox(value: "Malojire"),
+                      SizedBox(width: 10),
+                      Text("City:"),
+                      SizedBox(width: 5),
+                      TextBox(value: "Ratnagiri"),
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      Text("State:"),
+                      SizedBox(width: 5),
+                      TextBox(value: "Maharashtra"),
+                      SizedBox(width: 10),
+                      Text("Country:"),
+                      SizedBox(width: 5),
+                      TextBox(value: "India"),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Container(
+              width: 100,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.blue,
+              ),
+              child: Center(
+                child: Text(
+                  'Upload',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+
