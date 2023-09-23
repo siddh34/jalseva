@@ -26,6 +26,7 @@ class TextBox extends StatelessWidget {
             color: Colors.white,
             fontSize: 10,
             fontWeight: FontWeight.bold,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ),
