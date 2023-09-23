@@ -23,7 +23,7 @@ class _PostScreenState extends State<PostScreen> {
   @override
   void initState() {
     super.initState();
-    controller.captionController.value.text = "This is a sample caption";
+    controller.caption.value = "It is a photo";
   }
 
   Future<void> _showBottomSheet() async {
@@ -220,7 +220,9 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                   MaterialPageRoute(
                     builder: (context) => CaptionEditScreen(),
                   ),
-                );
+                ).then((value) {
+                  setState(() {});
+                });
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -231,7 +233,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
                 height: 75,
                 child: Center(
                   child: Text(
-                    controller.captionController.value.text,
+                    controller.caption.value,
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.white,

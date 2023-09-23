@@ -12,12 +12,16 @@ class _CaptionEditScreenState extends State<CaptionEditScreen> {
   final _formKey = GlobalKey<FormState>();
 
   late PostScreenController controller = Get.find<PostScreenController>();
-  TextEditingController captionController = TextEditingController(); 
+  late TextEditingController captionController;
+  
+  @override
+  void initState() {
+    super.initState();
+    captionController = TextEditingController(text: controller.caption.value);
+  }
 
   @override
   Widget build(BuildContext context) {
-    captionController.text = controller.captionController.value.text;
-    print(controller.captionController.value.text);
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Caption'),
@@ -26,7 +30,7 @@ class _CaptionEditScreenState extends State<CaptionEditScreen> {
             icon: Icon(Icons.check),
             onPressed: () {
               FocusScope.of(context).unfocus();
-              controller.captionController.value.text = captionController.text;
+              controller.caption.value = captionController.text;
               if (_formKey.currentState!.validate()) {
                 // add timeout of 2 seconds
                 Future.delayed(Duration(seconds: 2), () {
