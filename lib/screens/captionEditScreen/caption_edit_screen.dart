@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:jalseva/screens/postScreen/post_screen_controller.dart';
 
 class CaptionEditScreen extends StatefulWidget {
-  const CaptionEditScreen({Key? key, required this.autocaptioncontroller}) : super(key: key);
-  final TextEditingController  autocaptioncontroller;
+  const CaptionEditScreen({Key? key}) : super(key: key);
   @override
   _CaptionEditScreenState createState() => _CaptionEditScreenState();
 }
 
 class _CaptionEditScreenState extends State<CaptionEditScreen> {
   final _formKey = GlobalKey<FormState>();
-  late TextEditingController _captionController = widget.autocaptioncontroller;
-  @override
-  void dispose() {
-    _captionController.dispose();
-    super.dispose();
-  }
+
+  late PostScreenController controller = Get.find<PostScreenController>();
+  TextEditingController captionController = TextEditingController(); 
 
   @override
   Widget build(BuildContext context) {
+    captionController.text = controller.captionController.value.text;
+    print(controller.captionController.value.text);
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Caption'),
@@ -26,7 +26,13 @@ class _CaptionEditScreenState extends State<CaptionEditScreen> {
             icon: Icon(Icons.check),
             onPressed: () {
               FocusScope.of(context).unfocus();
-              Navigator.pop(context, _captionController.text);
+              controller.captionController.value.text = captionController.text;
+              if (_formKey.currentState!.validate()) {
+                // add timeout of 2 seconds
+                Future.delayed(Duration(seconds: 2), () {
+                  Get.back();
+                });
+              }
             },
           ),
         ],
@@ -39,7 +45,7 @@ class _CaptionEditScreenState extends State<CaptionEditScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextFormField(
-                controller: _captionController,
+                controller: captionController,
                 decoration: InputDecoration(
                   labelText: 'Caption',
                   hintText: 'Enter a caption',

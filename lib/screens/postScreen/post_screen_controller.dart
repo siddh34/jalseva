@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class PostScreenController extends GetxController {
-  TextEditingController captionController = TextEditingController();
+  late var captionController = TextEditingController().obs;
 
-  Future<void> getValueForController(String value) async {
-    captionController.text = value;
+  Future<void> getValueForController(String values) async {
+    captionController.value.text = values;
   }
 }

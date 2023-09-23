@@ -6,6 +6,7 @@ import '../../components/button.dart';
 import '../../components/image_viewer_post_screen.dart';
 import "../../components/TextBox.dart";
 import "./post_screen_controller.dart";
+import 'package:get/get.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({Key? key}) : super(key: key);
@@ -16,13 +17,13 @@ class PostScreen extends StatefulWidget {
 
 class _PostScreenState extends State<PostScreen> {
   File? _imageFile;
-  PostScreenController controller = PostScreenController();
+  PostScreenController controller = Get.put(PostScreenController());
 
   // initState
   @override
   void initState() {
     super.initState();
-    controller.captionController.text = "This is a sample caption";
+    controller.captionController.value.text = "This is a sample caption";
   }
 
   Future<void> _showBottomSheet() async {
@@ -71,7 +72,6 @@ class _PostScreenState extends State<PostScreen> {
           builder: (context) => ImagePreviewScreen(
             imageFile: _imageFile!,
             onRetake: _showBottomSheet,
-            controller: controller,
           ),
         ),
       );
@@ -97,20 +97,23 @@ class _PostScreenState extends State<PostScreen> {
   }
 }
 
-class ImagePreviewScreen extends StatelessWidget {
+class ImagePreviewScreen extends StatefulWidget {
   ImagePreviewScreen({
     Key? key,
     required this.imageFile,
     required this.onRetake,
-    required this.controller,
     this.firstname = "Aditya",
   }) : super(key: key);
 
   final File imageFile;
   final Function onRetake;
   final String firstname;
-  late PostScreenController controller;
 
+  @override
+  State<ImagePreviewScreen> createState() => _ImagePreviewScreenState();
+}
+
+class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,7 +126,7 @@ class ImagePreviewScreen extends StatelessWidget {
               width: 24,
               height: 24,
             ),
-            Text(firstname),
+            Text(widget.firstname),
             const SizedBox(width: 8),
             Image.asset(
               'assets/title.png',
@@ -139,113 +142,107 @@ class ImagePreviewScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ImageViewerPost(
-            imageFile: imageFile,
-            onRetake: onRetake,
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Latitude:"),
-                  SizedBox(width: 5),
-                  TextBox(value: "12.8998 N"),
-                  SizedBox(width: 20),
-                  Text("Longitude:"),
-                  SizedBox(width: 5),
-                  TextBox(value: "72.8998 E"),
-                ],
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text("Area:"),
-                  SizedBox(width: 30),
-                  TextBox(value: "Malojire"),
-                  SizedBox(width: 20),
-                  Text("City:"),
-                  SizedBox(width: 50),
-                  TextBox(value: "Ratnagiri"),
-                ],
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text("State:"),
-                  SizedBox(width: 25),
-                  TextBox(value: "Maharashtra"),
-                  SizedBox(width: 20),
-                  Text("Country:"),
-                  SizedBox(width: 23),
-                  TextBox(value: "India"),
-                ],
-              ),
-            ],
-          ),
-          Center(
-            child: Text(
-              "Auto Generated Caption",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+      body: GetBuilder<PostScreenController>(
+        builder: (controller) => Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ImageViewerPost(
+              imageFile: widget.imageFile,
+              onRetake: widget.onRetake,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Latitude:"),
+                    SizedBox(width: 5),
+                    TextBox(value: "12.8998 N"),
+                    SizedBox(width: 20),
+                    Text("Longitude:"),
+                    SizedBox(width: 5),
+                    TextBox(value: "72.8998 E"),
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("Area:"),
+                    SizedBox(width: 30),
+                    TextBox(value: "Malojire"),
+                    SizedBox(width: 20),
+                    Text("City:"),
+                    SizedBox(width: 50),
+                    TextBox(value: "Ratnagiri"),
+                  ],
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text("State:"),
+                    SizedBox(width: 25),
+                    TextBox(value: "Maharashtra"),
+                    SizedBox(width: 20),
+                    Text("Country:"),
+                    SizedBox(width: 23),
+                    TextBox(value: "India"),
+                  ],
+                ),
+              ],
+            ),
+            Center(
+              child: Text(
+                "Auto Generated Caption",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => CaptionEditScreen(
-                          autocaptioncontroller: controller.captionController),
-                    ),
-                  );
-                },
-                child: Container(
-                  // add container decoaration
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF333333),
-                    borderRadius: BorderRadius.circular(10),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CaptionEditScreen(),
                   ),
-                  width: 320,
-                  height: 75,
-                  child: Center(
-                    child: Text(
-                      // capture this text when navigator pops and this screen is returned
-                      controller.captionController.value.text,
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.white,
-                      ),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xFF333333),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                width: 320,
+                height: 75,
+                child: Center(
+                  child: Text(
+                    controller.captionController.value.text,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
-          CommonButton(insideText: 'Upload'),
-        ],
+            ),
+            CommonButton(insideText: 'Upload'),
+          ],
+        ),
       ),
     );
   }
