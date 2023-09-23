@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyBottomNavigationBar extends StatefulWidget {
-  const MyBottomNavigationBar({super.key});
+class JalShaktiBottomNavigationBar extends StatefulWidget {
+  const JalShaktiBottomNavigationBar({super.key});
 
   @override
   State<BottomNavigationBar> createState() =>
