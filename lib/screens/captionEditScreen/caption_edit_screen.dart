@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CaptionEditScreen extends StatefulWidget {
-  const CaptionEditScreen({Key? key}) : super(key: key);
-
+  const CaptionEditScreen({Key? key, required this.autocaptioncontroller}) : super(key: key);
+  final TextEditingController  autocaptioncontroller;
   @override
   _CaptionEditScreenState createState() => _CaptionEditScreenState();
 }
 
 class _CaptionEditScreenState extends State<CaptionEditScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _captionController = TextEditingController();
-
+  late TextEditingController _captionController = widget.autocaptioncontroller;
   @override
   void dispose() {
     _captionController.dispose();
@@ -26,7 +25,7 @@ class _CaptionEditScreenState extends State<CaptionEditScreen> {
           IconButton(
             icon: Icon(Icons.check),
             onPressed: () {
-              // Save the caption and go back to the previous screen
+              FocusScope.of(context).unfocus();
               Navigator.pop(context, _captionController.text);
             },
           ),

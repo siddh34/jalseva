@@ -1,9 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:jalseva/screens/captionEditScreen/caption_edit_screen.dart';
 import '../../components/button.dart';
 import '../../components/image_viewer_post_screen.dart';
 import "../../components/TextBox.dart";
+import "./post_screen_controller.dart";
+
+PostScreenController controller = PostScreenController();
 
 class PostScreen extends StatefulWidget {
   const PostScreen({Key? key}) : super(key: key);
@@ -14,6 +18,19 @@ class PostScreen extends StatefulWidget {
 
 class _PostScreenState extends State<PostScreen> {
   File? _imageFile;
+
+  // initState
+  @override
+  void initState() {
+    super.initState();
+    controller.captionController.text = "This is a sample caption";
+  }
+
+  void dispose() {
+    controller.captionController.dispose();
+    super.dispose();
+  }
+
 
   Future<void> _showBottomSheet() async {
     final result = await showModalBottomSheet<int>(
@@ -201,7 +218,13 @@ class ImagePreviewScreen extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, '/EditCaption');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CaptionEditScreen(
+                          autocaptioncontroller: controller.captionController),
+                    ),
+                  );
                 },
                 child: Container(
                   // add container decoaration
@@ -213,7 +236,8 @@ class ImagePreviewScreen extends StatelessWidget {
                   height: 75,
                   child: Center(
                     child: Text(
-                      'it is a photo',
+                      // capture this text when navigator pops and this screen is returned
+                      controller.captionController.value.text,
                       style: TextStyle(
                         fontSize: 13,
                         color: Colors.white,

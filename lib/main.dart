@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:jalseva/screens/SignupScreen/signup_screen.dart';
-import 'package:jalseva/screens/captionEditScreen/caption_edit_screen.dart';
 import 'package:jalseva/screens/loginScreen/login_screen.dart';
 import 'package:jalseva/screens/mainScreen/main_screen.dart';
 import 'package:jalseva/screens/postScreen/post_screen.dart';
@@ -13,14 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       routes: {
         '/splash': (context) => SplashScreen(),
         "/": (context) => MainScreen(),
         "/Post": (context) => PostScreen(),
         "/Login": (context) => LoginScreen(),
         "/Signup": (context) => SignupScreen(),
-        "/EditCaption": (context) => CaptionEditScreen()
       },
       title: 'Jalseva',
       theme: ThemeData(
