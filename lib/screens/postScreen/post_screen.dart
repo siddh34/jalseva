@@ -153,14 +153,17 @@ class ImagePreviewScreen extends StatelessWidget {
                 height: 5,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    width: 10,
+                  ),
                   Text("Area:"),
-                  SizedBox(width: 5),
+                  SizedBox(width: 30),
                   TextBox(value: "Malojire"),
                   SizedBox(width: 20),
                   Text("City:"),
-                  SizedBox(width: 5),
+                  SizedBox(width: 50),
                   TextBox(value: "Ratnagiri"),
                 ],
               ),
@@ -168,33 +171,58 @@ class ImagePreviewScreen extends StatelessWidget {
                 height: 5,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  SizedBox(
+                    width: 10,
+                  ),
                   Text("State:"),
-                  SizedBox(width: 5),
+                  SizedBox(width: 25),
                   TextBox(value: "Maharashtra"),
                   SizedBox(width: 20),
                   Text("Country:"),
-                  SizedBox(width: 5),
+                  SizedBox(width: 23),
                   TextBox(value: "India"),
                 ],
               ),
             ],
           ),
-          SizedBox(
-            width: 300,
-            child: TextField(
-              controller: TextEditingController(text: 'it is a photo'),
-              onChanged: (value) {
-                // Do something with the value
-              },
-              decoration: InputDecoration(
-                labelText: 'Auto Generated Caption',
-                hintText: 'Hint text',
-                border: OutlineInputBorder(),
-                contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+          Center(
+            child: Text(
+              "Auto Generated Caption",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
             ),
+          ),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/EditCaption');
+                },
+                child: Container(
+                  // add container decoaration
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF333333),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  width: 320,
+                  height: 75,
+                  child: Center(
+                    child: Text(
+                      'it is a photo',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           CommonButton(insideText: 'Upload'),
         ],
