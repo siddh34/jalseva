@@ -1,33 +1,37 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({super.key});
+class MyBottomNavigationBar extends StatefulWidget {
+  const MyBottomNavigationBar({super.key});
 
   @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
+  State<BottomNavigationBar> createState() =>
+      _BottomNavigationBarState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
+class _BottomNavigationBarState
+    extends State<BottomNavigationBar> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: Home',
+      'Index 0: Map',
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Search',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: Home',
       style: optionStyle,
     ),
     Text(
-      'Index 3: Settings',
+      'Index 3: Post',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 4: Profile',
       style: optionStyle,
     ),
   ];
@@ -50,24 +54,29 @@ class _BottomNavigationBarExampleState
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.map),
+            label: 'Map',
             backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.search),
+            label: 'Search',
             backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.home),
+            label: 'Home',
             backgroundColor: Colors.purple,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.post_add_rounded),
+            label: 'POST',
             backgroundColor: Colors.pink,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+            backgroundColor: Colors.blue,
           ),
         ],
         currentIndex: _selectedIndex,
