@@ -1,11 +1,6 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// const HeadingTextStyle = TextStyle(
-//   fontFamily: 'Duvall',
-//   fontSize: 136.968,
-//   fontWeight: FontWeight.w400,
-//   fontStyle: FontStyle.normal,
-//   letterSpacing: 1.37,
-//   height: 1.5,
-//   color: Colors.white,
-// );
+const TextStyle reducedTextSize = TextStyle(
+  fontSize: 10.0,
+  fontWeight: FontWeight.w400,
+);
