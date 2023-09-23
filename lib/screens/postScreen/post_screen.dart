@@ -7,8 +7,6 @@ import '../../components/image_viewer_post_screen.dart';
 import "../../components/TextBox.dart";
 import "./post_screen_controller.dart";
 
-PostScreenController controller = PostScreenController();
-
 class PostScreen extends StatefulWidget {
   const PostScreen({Key? key}) : super(key: key);
 
@@ -18,6 +16,7 @@ class PostScreen extends StatefulWidget {
 
 class _PostScreenState extends State<PostScreen> {
   File? _imageFile;
+  PostScreenController controller = PostScreenController();
 
   // initState
   @override
@@ -25,12 +24,6 @@ class _PostScreenState extends State<PostScreen> {
     super.initState();
     controller.captionController.text = "This is a sample caption";
   }
-
-  void dispose() {
-    controller.captionController.dispose();
-    super.dispose();
-  }
-
 
   Future<void> _showBottomSheet() async {
     final result = await showModalBottomSheet<int>(
@@ -78,6 +71,7 @@ class _PostScreenState extends State<PostScreen> {
           builder: (context) => ImagePreviewScreen(
             imageFile: _imageFile!,
             onRetake: _showBottomSheet,
+            controller: controller,
           ),
         ),
       );
@@ -104,16 +98,18 @@ class _PostScreenState extends State<PostScreen> {
 }
 
 class ImagePreviewScreen extends StatelessWidget {
-  const ImagePreviewScreen({
+  ImagePreviewScreen({
     Key? key,
     required this.imageFile,
     required this.onRetake,
+    required this.controller,
     this.firstname = "Aditya",
   }) : super(key: key);
 
   final File imageFile;
   final Function onRetake;
   final String firstname;
+  late PostScreenController controller;
 
   @override
   Widget build(BuildContext context) {
