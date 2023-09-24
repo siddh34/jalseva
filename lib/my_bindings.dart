@@ -14,6 +14,5 @@ class MyBindings implements Bindings {
     Get.put(MainScreenController());
 
     Get.put(CaptionEditController());
-
   }
 }

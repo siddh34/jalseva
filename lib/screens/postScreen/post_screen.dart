@@ -1,11 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:jalseva/constants/constants.dart';
+import 'package:jalseva/components/location_data_post_screen.dart';
 import 'package:jalseva/screens/captionEditScreen/caption_edit_screen.dart';
 import '../../components/button.dart';
 import '../../components/image_viewer_post_screen.dart';
-import "../../components/TextBox.dart";
 import "./post_screen_controller.dart";
 import 'package:get/get.dart';
 
@@ -152,59 +151,7 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
               imageFile: widget.imageFile,
               onRetake: widget.onRetake,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Latitude:",style:reducedTextSize),
-                    SizedBox(width: 5),
-                    TextBox(value: "12.8998 N"),
-                    SizedBox(width: 20),
-                    Text("Longitude:",style:reducedTextSize),
-                    SizedBox(width: 5),
-                    TextBox(value: "72.8998 E"),
-                  ],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text("Area:",style:reducedTextSize),
-                    SizedBox(width: 23),
-                    TextBox(value: "Malojire"),
-                    SizedBox(width: 20),
-                    Text("City:",style:reducedTextSize),
-                    SizedBox(width: 35),
-                    TextBox(value: "Ratnagiri"),
-                  ],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Text("State:",style:reducedTextSize),
-                    SizedBox(width: 20),
-                    TextBox(value: "Maharashtra"),
-                    SizedBox(width: 20),
-                    Text("Country:",style:reducedTextSize),
-                    SizedBox(width: 15),
-                    TextBox(value: "India"),
-                  ],
-                ),
-              ],
-            ),
+            LocationDataDisplay(latitude: "12.8998 N",longitude: "72.8998 E",area: "Malojire",city: "Ratnagiri",state: "Maharashtra",country: "India"),
             Center(
               child: Text(
                 "Auto Generated Caption",
@@ -250,3 +197,5 @@ class _ImagePreviewScreenState extends State<ImagePreviewScreen> {
     );
   }
 }
+
+
