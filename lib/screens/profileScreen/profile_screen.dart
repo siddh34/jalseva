@@ -23,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             Padding(
-              padding: const EdgeInsets.only(left: 70.0),
+              padding: const EdgeInsets.only(left: 70.0, top: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 70.0),
+              padding: const EdgeInsets.only(left: 70.0,top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -56,36 +56,39 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Edit Profile',
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[800],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 40.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Edit Profile',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[800],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Logout',
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Logout',
+                      style: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
