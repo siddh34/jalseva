@@ -5,6 +5,7 @@ import 'package:jalseva/screens/SignupScreen/signup_screen.dart';
 import 'package:jalseva/screens/loginScreen/login_screen.dart';
 import 'package:jalseva/screens/mainScreen/main_screen.dart';
 import 'package:jalseva/screens/postScreen/post_screen.dart';
+import 'package:jalseva/screens/profileScreen/profile_screen.dart';
 import 'package:jalseva/screens/splashScreen/splash_screen.dart';
 
 void main() => runApp(MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         "/Post": (context) => PostScreen(),
         "/Login": (context) => LoginScreen(),
         "/Signup": (context) => SignupScreen(),
+        "/Profile": (context) => ProfileScreen()
       },
       initialBinding: MyBindings(),
       title: 'Jalseva',

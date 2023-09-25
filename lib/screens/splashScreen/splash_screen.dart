@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
     controller.forward();
 
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/Post');
+      Navigator.pushReplacementNamed(context, '/Profile');
     });
   }
 
