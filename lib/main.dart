@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jalseva/my_bindings.dart';
 import 'package:jalseva/screens/SignupScreen/signup_screen.dart';
+import 'package:jalseva/screens/editProfileScreen/edit_profile_screen.dart';
 import 'package:jalseva/screens/loginScreen/login_screen.dart';
 import 'package:jalseva/screens/mainScreen/main_screen.dart';
 import 'package:jalseva/screens/postScreen/post_screen.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         "/Post": (context) => PostScreen(),
         "/Login": (context) => LoginScreen(),
         "/Signup": (context) => SignupScreen(),
-        "/Profile": (context) => ProfileScreen()
+        "/Profile": (context) => ProfileScreen(),
+        "/EditProfile": (context) => EditProfileScreen(),
       },
       initialBinding: MyBindings(),
       title: 'Jalseva',

@@ -62,7 +62,9 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/EditProfile');
+                    },
                     child: Text(
                       'Edit Profile',
                       style: Theme.of(context).textTheme.labelLarge,
