@@ -11,10 +11,19 @@ class LoginScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'JalShakti',
-                style: Theme.of(context).textTheme.headline5,
+              Image.asset(
+                'assets/title.png',
+                height: 60.0,
+              ),
+              const SizedBox(height: 16.0),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                ),
               ),
               const SizedBox(height: 16.0),
               TextField(
@@ -28,8 +37,16 @@ class LoginScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // TODO: Implement login logic
+                  Navigator.pushReplacementNamed(context, '/');
                 },
                 child: Text('Login'),
+              ),
+              const SizedBox(height: 16.0),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/Signup');
+                },
+                child: Text('Don\'t have an account? Signup'),
               ),
             ],
           ),
