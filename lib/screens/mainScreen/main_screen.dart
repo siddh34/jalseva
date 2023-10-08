@@ -13,7 +13,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Main Screen'),
+        child: Text(''),
         ),
         bottomNavigationBar: JalShaktiBottomNavigationBar(),
       );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jalseva/screens/homeScreen/home_screen.dart';
 import 'package:jalseva/screens/postScreen/post_screen.dart';
 import 'package:jalseva/screens/profileScreen/profile_screen.dart';
 
@@ -15,7 +16,7 @@ class _JalShaktiBottomNavigationBarState
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: Map',
       style: optionStyle,
@@ -24,10 +25,7 @@ class _JalShaktiBottomNavigationBarState
       'Index 1: Search',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: Home',
-      style: optionStyle,
-    ),
+    HomeScreen(),
     PostScreen(),
     ProfileScreen(),
   ];
