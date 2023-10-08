@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class JalShaktiBottomNavigationBar extends StatefulWidget {
-  const JalShaktiBottomNavigationBar({super.key});
+  const JalShaktiBottomNavigationBar({Key? key});
 
   @override
-  State<BottomNavigationBar> createState() =>
-      _BottomNavigationBarState();
+  State<JalShaktiBottomNavigationBar> createState() =>
+      _JalShaktiBottomNavigationBarState();
 }
 
-class _BottomNavigationBarState
-    extends State<BottomNavigationBar> {
+class _JalShaktiBottomNavigationBarState
+    extends State<JalShaktiBottomNavigationBar> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);

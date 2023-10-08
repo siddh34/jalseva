@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jalseva/components/bottom_navbar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -10,6 +11,11 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: Center(
+        child: Text('Main Screen'),
+        ),
+        bottomNavigationBar: JalShaktiBottomNavigationBar(),
+      );
   }
 }
