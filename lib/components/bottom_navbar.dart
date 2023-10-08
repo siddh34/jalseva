@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jalseva/screens/postScreen/post_screen.dart';
+import 'package:jalseva/screens/profileScreen/profile_screen.dart';
 
 class JalShaktiBottomNavigationBar extends StatefulWidget {
   const JalShaktiBottomNavigationBar({Key? key});
@@ -26,14 +28,8 @@ class _JalShaktiBottomNavigationBarState
       'Index 2: Home',
       style: optionStyle,
     ),
-    Text(
-      'Index 3: Post',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 4: Profile',
-      style: optionStyle,
-    ),
+    PostScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -45,9 +41,6 @@ class _JalShaktiBottomNavigationBarState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -56,31 +49,29 @@ class _JalShaktiBottomNavigationBarState
           BottomNavigationBarItem(
             icon: Icon(Icons.map),
             label: 'Map',
-            backgroundColor: Colors.red,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
-            backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.purple,
+            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.post_add_rounded),
             label: 'POST',
-            backgroundColor: Colors.pink,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
-            backgroundColor: Colors.blue,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );

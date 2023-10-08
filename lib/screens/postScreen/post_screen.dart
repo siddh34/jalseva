@@ -81,9 +81,6 @@ class _PostScreenState extends State<PostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Post Screen'),
-      ),
       body: Center(
         child: _imageFile == null
             ? const Text('No image selected')
