@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jalseva/components/postCard.dart';
 import '../../models/post.dart';
 
-import './comment_tile.dart';
+import '../../components/comment_tile.dart';
 class CommentScreen extends StatelessWidget {
   final Post post;
 
