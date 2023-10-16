@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jalseva/components/postCard.dart';
+import 'package:jalseva/components/post_card.dart';
 import 'package:jalseva/models/post.dart';
 import 'package:jalseva/services/post_service.dart';
 
