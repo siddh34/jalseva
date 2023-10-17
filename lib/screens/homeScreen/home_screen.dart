@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
       ),
       appBar: AppBar(
-        toolbarHeight: 120,
+        toolbarHeight: 100,
         automaticallyImplyLeading: false,
         title: Row(
           children: [
