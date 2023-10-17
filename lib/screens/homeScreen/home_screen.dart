@@ -47,18 +47,39 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _isLoading
-          ? Center(
-              child: CircularProgressIndicator(),
-            )
-          : ListView.builder(
-              controller: _scrollController,
-              itemCount: _posts.length,
-              itemBuilder: (BuildContext context, int index) {
-                Post post = _posts[index];
-                return PostCard(post: post);
-              },
+      body: SafeArea(
+        child: _isLoading
+            ? Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView.builder(
+                controller: _scrollController,
+                itemCount: _posts.length,
+                itemBuilder: (BuildContext context, int index) {
+                  Post post = _posts[index];
+                  return PostCard(post: post);
+                },
+              ),
+      ),
+      appBar: AppBar(
+        toolbarHeight: 120,
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/title.png',
+              height: 32,
             ),
+            SizedBox(width: 8),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.tune),
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }

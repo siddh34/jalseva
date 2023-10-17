@@ -28,7 +28,7 @@ class PostCard extends StatelessWidget {
                           width: 30,
                           height: 30,
                           fit: BoxFit.cover,
-                          ),
+                        ),
                         const SizedBox(width: 8),
                         Text.rich(
                           TextSpan(
@@ -38,7 +38,7 @@ class PostCard extends StatelessWidget {
                               fontSize: 16,
                             ),
                           ),
-                          ),
+                        ),
                       ],
                     ),
                     Row(
@@ -51,14 +51,14 @@ class PostCard extends StatelessWidget {
                               fontSize: 16,
                             ),
                           ),
-                          ),
+                        ),
                         const SizedBox(width: 8),
                         Image.asset(
                           'assets/google_maps.png',
                           width: 30,
                           height: 30,
                           fit: BoxFit.cover,
-                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -92,38 +92,35 @@ class PostCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  IconButton(
-                    icon: Icon(Icons.thumb_up),
-                    onPressed: () {},
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.handshake),
+                        onPressed: () {},
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.comment),
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
-                  IconButton(
-                    icon: Icon(Icons.comment),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.share),
-                    onPressed: () {},
+                  Row(
+                    children: [
+                      Text(
+                        "1 min ago",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.info),
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Likes: ${post.likes}',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      'Comments: ${post.comments}',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      'Shares: ${post.shares}',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
               ),
             ],
           ),
