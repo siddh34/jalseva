@@ -4,6 +4,7 @@ import 'package:jalseva/screens/editProfileScreen/edit_profile_controller.dart';
 import 'package:jalseva/screens/mainScreen/main_screen_controller.dart';
 import 'package:jalseva/screens/postScreen/post_screen_controller.dart';
 import 'package:jalseva/screens/profileScreen/profile_screen_controller.dart';
+import 'package:jalseva/screens/mapScreen/map_screen_controller.dart';
 
 class MyBindings implements Bindings {
   @override
@@ -17,5 +18,7 @@ class MyBindings implements Bindings {
     Get.put(CaptionEditController());
 
     Get.put(EditProfileController());
+
+    Get.put(MapScreenController());
   }
 }
